@@ -1,3 +1,12 @@
-<p>
-  mare-detail works!
-</p>
+<div *ngIf="mare$ | async as mare">
+  <h3>"{{ mare.name }}"</h3>
+  <div>
+    <label>Id: </label>{{ mare.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="mare.name" placeholder="name"/>
+  </div>
+  <p>
+    <button (click)="gotoMares(mare)">Back</button>
+  </p>
+</div>

@@ -1,1 +1,10 @@
 <h3>Stallions list</h3>
+
+<ul class="list-group">
+    <li *ngFor="let stallion of stallions$ | async"
+        [class.selected]="stallion.id === selectedId" class="list-group-item">
+        <a [routerLink]="['/stallion', stallion.id]">
+            <span class="badge">{{ stallion.id }}</span>{{ stallion.name }}
+        </a>
+    </li>
+</ul>

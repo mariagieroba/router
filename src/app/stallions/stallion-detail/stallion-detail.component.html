@@ -1,3 +1,12 @@
-<p>
-  stallion-detail works!
-</p>
+<div *ngIf="stallion$ | async as stallion">
+  <h3>"{{ stallion.name }}"</h3>
+  <div>
+    <label>Id: </label>{{ stallion.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="stallion.name" placeholder="name"/>
+  </div>
+  <p>
+    <button (click)="gotoStallions(stallion)">Back</button>
+  </p>
+</div>

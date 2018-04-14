@@ -9,7 +9,7 @@ import {GeldingsService} from './geldings.service';
     templateUrl: './geldings.component.html',
     styleUrls: ['./geldings.component.css']
 })
-export class GeldingsComponent {
+export class GeldingsComponent implements OnInit {
     geldings$: Observable<Horse[]>;
 
     private selectedId: number;

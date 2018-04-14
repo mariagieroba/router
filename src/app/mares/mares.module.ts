@@ -19,7 +19,7 @@ import {MaresRoutingModule} from './mares-routing.module';
         MaresRoutingModule
     ],
     providers: [
-        // MaresService
+         MaresService
     ]
 })
 export class MaresModule {
