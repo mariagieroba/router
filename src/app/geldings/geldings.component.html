@@ -1,0 +1,9 @@
+<h3>Gelding list</h3>
+<ul class="list-group">
+    <li *ngFor="let gelding of geldings$ | async"
+        [class.selected]="gelding.id === selectedId" class="list-group-item">
+        <a [routerLink]="['/gelding', gelding.id]">
+            <span class="badge">{{ gelding.id }}</span>{{ gelding.name }}
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,12 @@
+<div *ngIf="gelding$ | async as gelding">
+  <h3>"{{ gelding.name }}"</h3>
+  <div>
+    <label>Id: </label>{{ gelding.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="gelding.name" placeholder="name"/>
+  </div>
+  <p>
+    <button (click)="gotoGeldings(gelding)">Back</button>
+  </p>
+</div>
