@@ -1,41 +1,41 @@
 import {Component, OnInit, HostBinding} from '@angular/core';
-import {Horse} from '../../horse';
 import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
 import {Observable} from 'rxjs/Observable';
-import {StallionsService} from '../stallions.service';
+import {RidersService} from '../riders.service';
 import {slideInDownAnimation} from '../../animations';
+import {Rider} from '../../rider';
 
 @Component({
-    selector: 'app-stallion-detail',
-    templateUrl: './stallion-detail.component.html',
-    styleUrls: ['./stallion-detail.component.css'],
+    selector: 'app-rider-detail',
+    templateUrl: './rider-detail.component.html',
+    styleUrls: ['./rider-detail.component.css'],
     animations: [ slideInDownAnimation ]
 })
-export class StallionDetailComponent implements OnInit {
+export class RiderDetailComponent implements OnInit {
     @HostBinding('@routeAnimation') routeAnimation = true;
     @HostBinding('style.display') display = 'block';
     @HostBinding('style.position') position = 'absolute';
 
-    stallion$: Observable<Horse>;
+    rider$: Observable<Rider>;
 
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private service: StallionsService
+        private service: RidersService
     ) {
     }
 
     ngOnInit() {
-        this.stallion$ = this.route.paramMap
+        this.rider$ = this.route.paramMap
             .switchMap((params: ParamMap) =>
-                this.service.getStallion(params.get('id')));
+                this.service.getRider(params.get('id')));
     }
 
-    gotoStallions(stallion: Horse) {
-        const stallionId = stallion ? stallion.id : null;
-        this.router.navigate(['/stallions', {id: stallionId}]);
+    gotoRiders(rider: Rider) {
+        const riderId = rider ? rider.id : null;
+        this.router.navigate(['/riders', {id: riderId}]);
     }
 
 

@@ -1,0 +1,10 @@
+<ul class="items">
+  <li *ngFor="let rider of riders$ | async"
+      [class.selected]="rider.id === selectedId">
+    <a [routerLink]="[rider.id]">
+      <span class="badge">{{ rider.id }}</span>{{ rider.name }}
+    </a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

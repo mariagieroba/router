@@ -1,17 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, HostBinding} from '@angular/core';
 import { Horse } from '../../horse';
 import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
 import {Observable} from 'rxjs/Observable';
 import {MaresService} from '../mares.service';
+import {slideInDownAnimation} from '../../animations';
 
 @Component({
     selector: 'app-mare-detail',
     templateUrl: './mare-detail.component.html',
-    styleUrls: ['./mare-detail.component.css']
+    styleUrls: ['./mare-detail.component.css'],
+    animations: [ slideInDownAnimation ]
 })
 export class MareDetailComponent implements OnInit {
+
+    @HostBinding('@routeAnimation') routeAnimation = true;
+    @HostBinding('style.display') display = 'block';
+    @HostBinding('style.position') position = 'absolute';
 
     mare$: Observable<Horse>;
 
@@ -30,7 +36,7 @@ export class MareDetailComponent implements OnInit {
 
     gotoMares(mare: Horse) {
         const mareId = mare ? mare.id : null;
-        this.router.navigate(['/mares', { id: mareId, foo: 'foo' }]);
+        this.router.navigate(['/mares', { id: mareId }]);
     }
 
 }

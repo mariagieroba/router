@@ -6,7 +6,7 @@ import {StallionDetailComponent} from './stallion-detail/stallion-detail.compone
 
 const stallionsRoutes: Routes = [
     {path: 'stallions', component: StallionsComponent},
-    {path: 'mare/:id', component: StallionDetailComponent}
+    {path: 'stallion/:id', component: StallionDetailComponent}
 ];
 
 
