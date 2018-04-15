@@ -2,6 +2,7 @@ import 'rxjs/add/operator/switchMap';
 import {Observable} from 'rxjs/Observable';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
+
 import {Rider} from '../../rider';
 import {RidersService} from '../riders.service';
 
@@ -12,8 +13,7 @@ import {RidersService} from '../riders.service';
 export class RidersListComponent implements OnInit {
 
     riders$: Observable<Rider[]>;
-
-    private selectedId: number;
+    selectedId: number;
 
     constructor(
         private service: RidersService,

@@ -1,3 +1,9 @@
-<p>
-  manager works!
-</p>
+<h3>MANAGER</h3>
+
+<nav>
+    <a routerLink="./" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+    <a routerLink="./riders" routerLinkActive="active">Manage Riders</a>
+    <a routerLink="./horses" routerLinkActive="active">Manage Horses</a>
+</nav>
+<router-outlet></router-outlet>

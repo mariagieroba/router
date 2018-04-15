@@ -7,20 +7,23 @@ import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {ManagerComponent} from './manager/manager.component';
+
 import {GeldingsModule} from './geldings/geldings.module';
 import {MaresModule} from './mares/mares.module';
 import {StallionsModule} from './stallions/stallions.module';
 import {RidersModule} from './riders/riders.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
-
+import {ManagerModule} from './manager/manager.module';
+import { LoginComponent } from './login/login.component';
+import {LoginRoutingModule} from './login/login-routing.module';
+import {DialogService} from './dialog.service';
 
 @NgModule({
     declarations: [
         AppComponent,
         PageNotFoundComponent,
-        ManagerComponent,
-        ComposeMessageComponent
+        ComposeMessageComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
@@ -29,10 +32,12 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
         GeldingsModule,
         StallionsModule,
         RidersModule,
-        AppRoutingModule,
-        FormsModule
+        FormsModule,
+        ManagerModule,
+        LoginRoutingModule,
+        AppRoutingModule
     ],
-    providers: [],
+    providers: [DialogService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

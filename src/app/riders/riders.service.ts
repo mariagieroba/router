@@ -18,9 +18,11 @@ const RIDERS = [
 
 @Injectable()
 export class RidersService {
+    static nextRiderId = 100;
+    private riders$: BehaviorSubject<Rider[]> = new BehaviorSubject<Rider[]>(RIDERS);
 
     getRiders() {
-        return Observable.of(RIDERS);
+        return this.riders$;
     }
 
     getRider(id: number | string) {
